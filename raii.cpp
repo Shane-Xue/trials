@@ -9,14 +9,14 @@ public:
   ~b(){
     cout<<"in b destructor"<<endl;
     }
-  hey(){
+  void hey(){
     cout<<"hey there!"<<endl;
     }
-}
+};
 
 int main(){
-  b::hey();
+  //b::hey();
   b boy;
-  boy.hey;
+  boy.hey();
   return 0;
   }
