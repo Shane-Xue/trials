@@ -1,10 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <exeption>
+#include <exception>
 #include <algorithm>
 #include <vector>
-#include <stringstream>
+#include <sstream>
+#include <numeric>
 using namespace std;
 
 template <typename Data_type> //must explicitly introduce type, cannot deduce
@@ -47,7 +48,7 @@ int main(int argc,char** argv){
         cout<<"enter number for data (or -1 if you do not know how much data there is):";
         int datanum;
         cin>>datanum;
-        data = getdata<int>(file,datanum);
+        data = get_data<int>(file,datanum);
         }
     else{
         cerr<<"too much arguments!";
@@ -58,11 +59,11 @@ int main(int argc,char** argv){
     cout<<"input total number of money";
     cin>>moneytot;
     vector<double> moneypp;
-    for (auto x : data){
-        moneypp.push_back(moneytot*(x/total));
+    for (auto& x : data){
+        moneypp.push_back(moneytot*(static_cast<double> x/total));
         }
     ofstream calculated("outdata.txt");
-    for (auto x : moneypp){
+    for (auto& x : moneypp){
         calculated<<x<<endl;
         }
     }
