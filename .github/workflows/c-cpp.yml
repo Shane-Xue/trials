@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: init
       run: git init
-    - name: pull
-      run: git pull
+    - name: clone
+      run: git clone https://github.com/Shane-Xue/trials
     - name: build
       run: g++ salary.cpp -S
