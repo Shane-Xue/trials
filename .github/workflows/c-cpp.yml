@@ -13,5 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: init
+      run: git init
+    - name: pull
+      run: git pull
     - name: build
       run: g++ salary.cpp -S
